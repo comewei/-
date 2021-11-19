@@ -60,6 +60,39 @@ BadZipFile: File is not a zip file
 
 
 
+### Task 02
+
+这一章节还算简单，主要对Excel的读取，通过导入包建立对象进行赋值。这个有个比较有趣的点就是使用的python版本不能读取中文字符串文件名。加深了对于迭代的了解，使用索引和迭代项。
+
+作业打算使用读取多个格子的方式来，但是没能成功，不能直接在cell使用[]索引
+
+作业：
+
+```
+from openpyxl import load_workbook
+from openpyxl.styles import Font, Side, Border
+workbook = load_workbook('new_test.xlsx')
+sheet = workbook.active
+buy_mount = sheet["F"]
+row_lst = []
+for cell in buy_mount:
+    if isinstance(cell.value, int) and cell.value > 5:
+        print(cell.row)
+        row_lst.append(cell.row)
+side = Side(style='thin', color='FF000000')
+border = Border(left=side, right=side, top=side, bottom=side)
+font = Font(bold=True, color='FF0000')
+for row in row_lst:
+    for cell in sheet[row]:
+        cell.font = font
+        cell.border = border
+workbook.save('new_test.xlsx')
+```
+
+
+
+
+
 > 参考
 
 [Python-Datawhale-Github官方指定](https://github.com/datawhalechina/team-learning-program/blob/master/OfficeAutomation/Task01%20%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E9%82%AE%E4%BB%B6%E5%A4%84%E7%90%86.md)
