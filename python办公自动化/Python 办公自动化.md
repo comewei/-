@@ -93,6 +93,67 @@ workbook.save('new_test.xlsx')
 
 
 
+### Task 03
+
+这次学习的是python-word,主要还是生成对象，很多和word里面操作的属性类似。这里在excel到word中，利用了上节课的知识点，在设置的时候，使用了函数，没有直接嵌入循环，比较简洁。
+
+作业：
+
+```
+# 导入库
+from docx import Document
+from docx.shared import RGBColor, Pt, Inches, Cm
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.oxml.ns import qn
+from docx.shared import RGBColor,Pt
+
+def produce_doc(i, r0, r1, r2, r3):
+
+    doc = Document()
+
+    heading_1 = doc.add_heading("邀请函", level = 0)
+    heading_1.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+
+    # 新增段落
+    paragraph_1 = doc.add_paragraph()
+
+    # 设置段落的格式
+    '''
+    设置段落格式：首行缩进0.75cm，居左，段后距离1.0英寸,1.5倍行距。
+    '''
+    paragraph_1.paragraph_format.first_line_indent = Cm(0.75)
+    paragraph_1.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
+    paragraph_1.paragraph_format.space_after = Inches(1.0)
+    paragraph_1.paragraph_format.line_spacing = 1.5
+    paragraph_1.add_run("尊敬%s的公司%s%s，您好" %(r0, r1, r2))
+    paragraph_1.add_run('just for testing').font.underline = True
+
+    paragraph_2 = doc.add_paragraph()
+    paragraph_2.add_run('邀请您参加活动！')
+
+
+    paragraph_3 = doc.add_paragraph()
+    paragraph_3.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.RIGHT
+    paragraph_3.add_run('邀请时间：%s' %r3)
+    doc.save('test%s.docx' %i)
+    
+    
+import openpyxl
+
+wb = openpyxl.load_workbook('excelToword.xlsx')
+sheet = wb.active
+cells = sheet['A1:D5']
+i = 0
+for row in sheet.iter_rows(min_row = 2, max_row = 5,
+                           min_col = 1, max_col =4):
+    i = i + 1
+    produce_doc(i, row[0].value, row[1].value, row[2].value, row[3].value)
+```
+
+
+
+
+
 > 参考
 
 [Python-Datawhale-Github官方指定](https://github.com/datawhalechina/team-learning-program/blob/master/OfficeAutomation/Task01%20%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E%E9%82%AE%E4%BB%B6%E5%A4%84%E7%90%86.md)
