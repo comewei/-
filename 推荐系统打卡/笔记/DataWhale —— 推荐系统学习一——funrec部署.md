@@ -481,7 +481,7 @@ sudo apt-get remove mongodb
 
 - [下载mongodb网址](https://www.mongodb.com/try/download/community)
 
-  ![image-20211215111653502](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211215111653502.png)
+  ![image-20211215111653502](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211215111653502.png)
 
 - ```
   cd /home/software
@@ -581,7 +581,7 @@ kill 进程
 
 - 发现以下bug:
 
-  - ![图片image-20211030164432589](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\图片image-20211030164432589.png)
+  - ![图片image-20211030164432589](.\DataWhale —— 推荐系统学习一——funrec部署.assets\图片image-20211030164432589.png)
 
   - :question:redis-server.service: Can't open PID file /run/redis/redis-server.pid (yet?) after start: Operation not permitted
 
@@ -594,7 +594,7 @@ vim /etc/systemd/system/redis.service
 
 - ​	`ExecStartPost=/bin/sh -c "echo $MAINPID > /run/redis/redis.pid"`
 
-![image-20211218113807065](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211218113807065.png)
+![image-20211218113807065](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211218113807065.png)
 
 - **重启服务**
 
@@ -614,7 +614,7 @@ bug解决
   ps -aux | grep redis-server
   ```
 
-  ![image-20211215112254592](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211215112254592.png)
+  ![image-20211215112254592](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211215112254592.png)
 
 - 或者进入redis客户端，与服务器进行通信，当输入ping命令，如果返回 PONG 表示Redis已成功安装
 
@@ -660,7 +660,7 @@ redis-server /etc/redis/redis.conf
 
 - redis 这一块
 
-  ![image-20211217085308412](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211217085308412.png)
+  ![image-20211217085308412](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211217085308412.png)
 
 
 
@@ -885,7 +885,7 @@ conda activate news_rec_py3
 
 - 打开阿里云防火墙
 
-  - ![image-20211216150250334](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211216150250334.png)
+  - ![image-20211216150250334](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216150250334.png)
 
 - 访问
 
@@ -945,13 +945,13 @@ conda activate news_rec_py3
       -- 创建register_user数据库
       ```
 
-    - ![image-20211216232204041](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211216232204041.png)
+    - ![image-20211216232204041](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216232204041.png)
   
-    - 注册表之后出现![image-20211216233932204](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211216233932204.png)
+    - 注册表之后出现![image-20211216233932204](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216233932204.png)
   
     - 原因，前端main.js中没有映射到位
   
-      ![image-20211216235912709](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211216235912709.png)
+      ![image-20211216235912709](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216235912709.png)
   
 - 清除前一天的`redis`中数据,更新今天最新的数据
 
@@ -971,12 +971,11 @@ conda activate news_rec_py3
 
 - 登录用户查看新闻
 
-  发现没有数据![image-20211217085331310](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211217085331310.png)
+  发现没有数据![image-20211217085331310](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211217085331310.png)
   
-
 - bug
 
-  - ![image-20211216145105955](E:\研究生\工作\推荐系统\DataWhale —— 推荐系统学习.assets\image-20211216145105955.png)
+  - ![image-20211216145105955](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216145105955.png)
 
   端口被占用，使用以下命令查看端口
 

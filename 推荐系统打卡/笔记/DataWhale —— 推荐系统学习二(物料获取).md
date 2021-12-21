@@ -22,7 +22,7 @@ pip install scrapy
 scrapy startproject myproject
 ```
 
-运行之后出现![image-20211220144324603](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220144324603.png)
+运行之后出现![image-20211220144324603](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220144324603.png)
 
 进入`myproject`，使用`tree` 查看项目结构:
 
@@ -30,7 +30,7 @@ scrapy startproject myproject
 tree
 ```
 
-![image-20211220144425538](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220144425538.png)
+![image-20211220144425538](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220144425538.png)
 
 - scrapy.cfg: 项目配置文件
 - myproject/ : 项目python模块, 代码将从这里导入
@@ -120,7 +120,7 @@ cd sinanews
 tree
 ```
 
-![image-20211220144425538](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220144425538.png)
+![image-20211220144425538](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220144425538.png)
 
 3.2 实现items.py逻辑，这里就不一一列举。[可以进入源码查看](https://github.com/datawhalechina/fun-rec/blob/master/codes/news_recsys/news_rec_server/materials/news_scrapy/sinanews/items.py)
 
@@ -169,15 +169,15 @@ mongo
 show dbs;
 ```
 
-![image-20211220164145220](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220164145220.png)
+![image-20211220164145220](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220164145220.png)
 
 这个是爬取前的数据(之前爬取的)
 
 这个是爬取后的数据
 
-![image-20211220170026874](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220170026874.png)
+![image-20211220170026874](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220170026874.png)
 
-![image-20211220170045782](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220170045782.png)
+![image-20211220170045782](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220170045782.png)
 
 > 参考
 
@@ -220,9 +220,9 @@ show dbs;
 
 爬取的数据存在`SinaNews`数据库中，对新物料进行简单处理，存储在的`NewsRecSys`数据库中的`FeatureProtrail`表中。在`DataGrid`中数据表对比可以看出
 
-<img src="E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220171949337.png" alt="image-20211220171949337" style="zoom:92.5%;" />
+<img src=".\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220171949337.png" alt="image-20211220171949337" style="zoom:92.5%;" />
 
-![image-20211220172054234](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220172054234.png)
+![image-20211220172054234](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220172054234.png)
 
 处理逻辑：遍历“今天”爬取的所有文章，通过文章标题是否存在物料库中来去重。然后结合定义字段，存入画像物料池中
 
@@ -232,7 +232,7 @@ show dbs;
 
 旧物料是指之前已经爬取的数据，曝光给了用户。用户行为会更新旧物料的特定字段，很明显，前端展现的`阅读`、`喜欢`、`收藏`会作为 本系统 推荐的重要指标。
 
-![image-20211220174253115](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220174253115.png)
+![image-20211220174253115](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220174253115.png)
 
 - 前端实时反馈
   - 系统提前把**新闻动态信息存储到了Redis**中，线上获取可以直接从redis中获取新闻数据，可以实时显示新闻的动态信息行为。如果用户对新闻产生了交互，信息会动态更新。比如你点击阅读，进入之后点击喜欢和返回，系统会动态显示新闻信息。这样可以试试获取新闻最新的动态画像信息
@@ -250,7 +250,7 @@ news_protrait.py
   - 新闻中用户行为更新到MongoDB数据库，修改到FeatureProtrail数据库。比如用户阅读、点击喜欢
   - Redis每日会清零，然后会从FeatureProtrail重新读取数据
   - 爬取数据简单处理输入到MongoDB数据库，新物料的导入
-  - 这里插入一个示意图：![image-20211220215615791](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220215615791.png)
+  - 这里插入一个示意图：![image-20211220215615791](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220215615791.png)
 
 news_to_redis.py
 
@@ -262,10 +262,10 @@ Redis新闻信息的存储由两部分构成：静态信息和动态信息；比
   - 表三为动态属性表
   - 表四为用户表
 
-- ![image-20211220211019626](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220211019626.png)
+- ![image-20211220211019626](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220211019626.png)
 - 这样存储的目的是为了线上实时修改物料动态信息的时候更加高效，减少不必要的传输
 - 主要是负责：
-  - ![image-20211220213919302](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220213919302.png) **备注一下，到回来看**—— 这里新闻比较少，简便使用
+  - ![image-20211220213919302](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220213919302.png) **备注一下，到回来看**—— 这里新闻比较少，简便使用
   - 每日对redis中的数据进行一次清洗，对不同数据类型处理后由MongoDB中的RedisProtrail转入Redis数据库
 
 离线物料主要由以上两个函数构成，最后在`process_material.py` 中串起来。每天定时运行，物料侧逻辑就结束了
@@ -281,7 +281,7 @@ Redis新闻信息的存储由两部分构成：静态信息和动态信息；比
 
 由于我们系统中将所有注册过的用户都放到了一个表里面（新、老用户），所以每次更新画像的话只需要遍历一遍注册表中的所有用户。
 
-用户表由以下字段构成：![image-20211220220836336](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220220836336.png)
+用户表由以下字段构成：![image-20211220220836336](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211220220836336.png)
 
 主要是用户的基本信息和用户历史信息相关的一些标签，对于用户的基本属性特征这个可以直接从注册表中获取，那么对于跟用户历史阅读相关的信息，需要统计用户历史的所有阅读、喜欢和收藏的新闻详细信息。为了得到跟用户历史兴趣相关的信息，我们需要对用户的历史阅读、喜欢和收藏这几个历史记录给存起来，其实这些信息都可以从日志信息中获取得到
 
@@ -291,7 +291,7 @@ __ __
 
 点击文章阅读时，底部会有`喜欢`  、`收藏`按钮。这表明前端展示的结果是来源后端，后端需要提供用户历史点击**喜欢**及**收藏过的文章列表**。比较细节的是，这里我们使用Mysql数据库来存储，防止redis不够用。    这两个表不只是展示信息，还可以用来**分析用户画像**
 
-![image-20211221105605517](E:\研究生\工作\Datawhale\study-in-graduate\推荐系统打卡\笔记\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211221105605517.png)
+![image-20211221105605517](.\DataWhale —— 推荐系统学习二(物料获取).assets\image-20211221105605517.png)
 
 用户历史阅读的文章可以做用户画像，为了更好处理和理解，我们也维护了一份用户历史阅读过的所有文章的mysql表（维护表的核心逻辑就是每天跑一边用户日志，更新一下用户历史阅读的记录那么此时我们其实已经有了用户的阅读、点赞和收藏三个用户行为表了，接下来就直接可以通过这三个表来做具体的用户兴趣相关的画像
 
