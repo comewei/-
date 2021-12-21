@@ -481,7 +481,7 @@ sudo apt-get remove mongodb
 
 - [下载mongodb网址](https://www.mongodb.com/try/download/community)
 
-  ![image-20211215111653502](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211215111653502.png)
+  ![image-20211215111653502]<img src= ".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211215111653502.png">
 
 - ```
   cd /home/software
@@ -581,7 +581,7 @@ kill 进程
 
 - 发现以下bug:
 
-  - ![图片image-20211030164432589](.\DataWhale —— 推荐系统学习一——funrec部署.assets\图片image-20211030164432589.png)
+  - ![图片image-20211030164432589]<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\图片image-20211030164432589.png">
 
   - :question:redis-server.service: Can't open PID file /run/redis/redis-server.pid (yet?) after start: Operation not permitted
 
@@ -660,7 +660,7 @@ redis-server /etc/redis/redis.conf
 
 - redis 这一块
 
-  ![image-20211217085308412](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211217085308412.png)
+  ![image-20211217085308412]<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211217085308412.png">
 
 
 
@@ -885,7 +885,7 @@ conda activate news_rec_py3
 
 - 打开阿里云防火墙
 
-  - ![image-20211216150250334](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216150250334.png)
+  - ![image-20211216150250334]<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216150250334.png">
 
 - 访问
 
@@ -945,13 +945,13 @@ conda activate news_rec_py3
       -- 创建register_user数据库
       ```
 
-    - ![image-20211216232204041](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216232204041.png)
+    - ![image-20211216232204041]<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216232204041.png">
   
-    - 注册表之后出现![image-20211216233932204](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216233932204.png)
+    - 注册表之后出现![image-20211216233932204]
   
     - 原因，前端main.js中没有映射到位
   
-      ![image-20211216235912709](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216235912709.png)
+      ![image-20211216235912709](<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216235912709.png">
   
 - 清除前一天的`redis`中数据,更新今天最新的数据
 
@@ -971,11 +971,11 @@ conda activate news_rec_py3
 
 - 登录用户查看新闻
 
-  发现没有数据![image-20211217085331310](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211217085331310.png)
+  发现没有数据![image-20211217085331310]<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211217085331310.png">
   
 - bug
 
-  - ![image-20211216145105955](.\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216145105955.png)
+  - ![image-20211216145105955]<img src=".\DataWhale —— 推荐系统学习一——funrec部署.assets\image-20211216145105955.png">
 
   端口被占用，使用以下命令查看端口
 
@@ -1013,3 +1013,4 @@ conda activate news_rec_py3
 部署项目环境过程中，发现这个项目前端后端交互方面自己很是缺乏，对于计算机网络学习知识忘记了一大半。爬虫问题使用自己的电脑爬取网络有些问题，导致卡了很久。一个很多的收获就是要做好笔记，这样才可以备查。之前安装anaconda的知识一下就用上来了，感觉真的很不错。很感谢锋哥的分享还有几个小时帮我debug，队友们也很热情。不知不觉两三天卡在部署就很久了。
 
 这次告诉 对于Linux文件放置要有条例，做好笔记，善于分享，多多交流。
+
